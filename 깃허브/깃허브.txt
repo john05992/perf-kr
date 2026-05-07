@@ -1,0 +1,4 @@
+  1. git 초기화 & 커밋
+  ! cd "C:\Users\tlsdy\OneDrive\바탕 화면\프리미엄 과외" && git init && git add . && git commit -m "first commit"
+
+  시간 걸릴 수 있어요 (파일 많으니까). 완료되면 알려주세요!

@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOPCLASS 프리미엄 온라인 과외</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #fff;
+      color: #111;
+      width: 100%;
+    }
+
+    /* ══════════════════════════
+       NAV
+    ══════════════════════════ */
+    .gnb {
+      width: 100%;
+      height: 72px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 50px;
+      border-bottom: 1px solid #eee;
+    }
+    .gnb-logo {
+      font-size: 18px;
+      font-weight: 900;
+      color: #111;
+      letter-spacing: -0.5px;
+    }
+    .gnb-logo span { color: #c9a030; }
+    .gnb-menu {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .gnb-menu li {
+      font-size: 13px;
+      font-weight: 500;
+      color: #444;
+      letter-spacing: -0.2px;
+      cursor: pointer;
+    }
+    .gnb-menu li.active { color: #111; font-weight: 700; }
+    .gnb-cta {
+      background: #111;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 3px;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+    }
+
+    /* ══════════════════════════
+       HERO SLIDER
+    ══════════════════════════ */
+    @keyframes lightDrift {
+      0%   { transform: translate(0%, 0%)   scale(1);    opacity: 1; }
+      25%  { transform: translate(6%, -8%)  scale(1.1);  opacity: 0.8; }
+      50%  { transform: translate(-4%, 5%)  scale(0.95); opacity: 1; }
+      75%  { transform: translate(8%, 3%)   scale(1.05); opacity: 0.85; }
+      100% { transform: translate(0%, 0%)   scale(1);    opacity: 1; }
+    }
+    @keyframes lightDrift2 {
+      0%   { transform: translate(0%, 0%)   scale(1); }
+      33%  { transform: translate(-7%, 6%)  scale(1.08); }
+      66%  { transform: translate(5%, -4%)  scale(0.94); }
+      100% { transform: translate(0%, 0%)   scale(1); }
+    }
+
+    .slider-wrap {
+      width: 100%;
+      height: 680px;
+      position: relative;
+      overflow: hidden;
+      background: #0d0d0d;
+      display: flex;
+    }
+
+    /* 브라운 조명 레이어 1 — 좌측 중앙 */
+    .slider-wrap::before {
+      content: '';
+      position: absolute;
+      top: -10%; left: -5%;
+      width: 70%; height: 130%;
+      background: radial-gradient(ellipse, rgba(180, 110, 35, 0.22) 0%, transparent 65%);
+      animation: lightDrift 12s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+    /* 브라운 조명 레이어 2 — 우측 하단 */
+    .slider-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: -20%; right: 0%;
+      width: 60%; height: 110%;
+      background: radial-gradient(ellipse, rgba(160, 90, 25, 0.16) 0%, transparent 60%);
+      animation: lightDrift2 16s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* 좌측 텍스트 영역 */
+    .slide-left {
+      flex: 0 0 55%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 72px;
+      z-index: 2;
+    }
+
+    /* 우측 이미지 영역 */
+    .slide-right {
+      flex: 0 0 45%;
+      position: relative;
+      overflow: hidden;
+      z-index: 2;
+    }
+    .slide-right::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, #0d0d0d 0%, transparent 30%);
+      z-index: 3;
+      pointer-events: none;
+    }
+    .slide-right img {
+      position: absolute;
+      bottom: 0;
+      right: -20px;
+      height: 105%;
+      width: auto;
+      z-index: 2;
+      mix-blend-mode: multiply;
+    }
+
+    /* 텍스트 콘텐츠 */
+    .slide-content {
+      display: flex;
+      flex-direction: column;
+    }
+    .slide-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      color: #c9a030;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeDown 0.8s 0.2s forwards;
+    }
+    .slide-title {
+      font-size: 50px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.2;
+      letter-spacing: -1.5px;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeDown 0.8s 0.5s forwards;
+    }
+    .slide-title .gold { color: #c9a030; }
+    .slide-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.9;
+      max-width: 440px;
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.8s forwards;
+    }
+    .slide-sub b { color: rgba(255,255,255,0.85); font-weight: 500; }
+    .slide-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #c9a030;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 15px 32px;
+      border-radius: 3px;
+      width: fit-content;
+      opacity: 0;
+      animation: fadeUp 0.8s 1.1s forwards;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+    }
+    .slide-btn-arrow {
+      font-size: 16px;
+      transition: transform 0.2s;
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── 슬라이더 UI (하단) ── */
+    .slider-bottom {
+      position: absolute;
+      bottom: 36px; left: 0; right: 0;
+      padding: 0 72px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    /* 페이지네이션 (01 / 03 스타일) */
+    .slider-pagination {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .pg-current {
+      font-size: 38px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+    .pg-sep {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-bottom: 4px;
+    }
+    .pg-line-full {
+      width: 60px;
+      height: 1px;
+      background: rgba(255,255,255,0.2);
+      position: relative;
+    }
+    .pg-line-prog {
+      position: absolute;
+      left: 0; top: 0;
+      height: 1px;
+      width: 40%;
+      background: #c9a030;
+    }
+    .pg-total {
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.35);
+      padding-bottom: 4px;
+    }
+
+    /* 재생/정지 버튼 + 원형 진행바 */
+    .slider-ctrl {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .ctrl-circle {
+      width: 48px; height: 48px;
+      position: relative;
+    }
+    .ctrl-svg {
+      width: 48px; height: 48px;
+      transform: rotate(-90deg);
+    }
+    .ctrl-track {
+      fill: none;
+      stroke: rgba(255,255,255,0.12);
+      stroke-width: 2;
+    }
+    .ctrl-progress {
+      fill: none;
+      stroke: #c9a030;
+      stroke-width: 2;
+      stroke-dasharray: 126;
+      stroke-dashoffset: 40;
+      stroke-linecap: round;
+    }
+    .ctrl-play {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 13px;
+    }
+    .dots-wrap {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+    }
+    .dot.on {
+      background: #c9a030;
+      width: 20px;
+      border-radius: 3px;
+    }
+
+    /* ── 스크롤 힌트 ── */
+    .scroll-hint {
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .scroll-hint-text {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+    }
+    .scroll-hint-line {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+    }
+
+    /* ══════════════════════════
+       STATS BAR (히어로 아래)
+    ══════════════════════════ */
+    .stats-bar {
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      display: flex;
+    }
+    .stat-cell {
+      flex: 1;
+      padding: 32px 0;
+      text-align: center;
+      border-right: 1px solid #eee;
+    }
+    .stat-cell:last-child { border-right: none; }
+    .stat-num {
+      font-size: 34px;
+      font-weight: 900;
+      color: #111;
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-num em { color: #c9a030; font-style: normal; }
+    .stat-label {
+      font-size: 11px;
+      color: #aaa;
+      letter-spacing: 1px;
+      font-weight: 400;
+    }
+
+    /* ══════════════════════════
+       SECTION HEADER (공통)
+    ══════════════════════════ */
+    .sec-wrap {
+      padding: 80px 72px;
+    }
+    .sec-head {
+      margin-bottom: 52px;
+    }
+    .sec-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      color: #c9a030;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .sec-title {
+      font-size: 32px;
+      font-weight: 900;
+      color: #111;
+      letter-spacing: -0.8px;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .sec-desc {
+      font-size: 14px;
+      color: #999;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    /* ══════════════════════════
+       TEACHER GRID
+    ══════════════════════════ */
+
+    /* 강사진 섹션 브라운 애니메이션 */
+    @keyframes brownDrift {
+      0%   { opacity: 0.55; transform: translate(0%, 0%) scale(1); }
+      33%  { opacity: 0.7;  transform: translate(8%, -5%) scale(1.08); }
+      66%  { opacity: 0.5;  transform: translate(-5%, 6%) scale(0.96); }
+      100% { opacity: 0.55; transform: translate(0%, 0%) scale(1); }
+    }
+
+    .teachers-bg-wrap {
+      position: relative;
+      background: #fff;
+      overflow: hidden;
+    }
+    .teachers-bg-wrap::before {
+      content: '';
+      position: absolute;
+      top: -30%; left: 20%;
+      width: 60%; height: 160%;
+      background: radial-gradient(ellipse, rgba(180, 110, 40, 0.055) 0%, transparent 65%);
+      animation: brownDrift 12s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .teachers-bg-wrap::after {
+      content: '';
+      position: absolute;
+      top: 10%; left: -10%;
+      width: 50%; height: 80%;
+      background: radial-gradient(ellipse, rgba(150, 90, 30, 0.04) 0%, transparent 60%);
+      animation: brownDrift 16s ease-in-out infinite reverse;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .teachers-bg-wrap > * { position: relative; z-index: 1; }
+
+    .teacher-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .teacher-card {
+      background: #f8f7f4;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .t-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      position: relative;
+      overflow: hidden;
+    }
+    .t-photo-bg {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .t-initial {
+      font-size: 96px;
+      font-weight: 900;
+      color: rgba(255,255,255,0.07);
+      line-height: 1;
+      user-select: none;
+    }
+    .t-tag {
+      position: absolute;
+      top: 14px; left: 14px;
+      background: rgba(0,0,0,0.4);
+      color: rgba(255,255,255,0.85);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      padding: 5px 10px;
+      border-radius: 2px;
+    }
+    .t-bottom {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 40px 18px 18px;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    }
+    .t-quote {
+      font-size: 12px;
+      font-style: italic;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.6;
+    }
+    .t-quote::before { content: '\201C'; }
+    .t-quote::after  { content: '\201D'; }
+    .t-info {
+      padding: 18px 20px 22px;
+    }
+    .t-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 3px;
+    }
+    .t-subject {
+      font-size: 10px;
+      font-weight: 700;
+      color: #c9a030;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .t-divider { height: 1px; background: #e8e4dc; margin-bottom: 12px; }
+    .t-career { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .t-career li {
+      font-size: 12px;
+      color: #555;
+      line-height: 1.5;
+      padding-left: 12px;
+      position: relative;
+    }
+    .t-career li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 8px;
+      width: 5px; height: 1px;
+      background: #c9a030;
+    }
+
+    /* ══════════════════════════
+       COMPARE
+    ══════════════════════════ */
+    .compare-wrap {
+      background: #111;
+      padding: 80px 72px;
+    }
+    .compare-wrap .sec-label { color: #c9a030; }
+    .compare-wrap .sec-title { color: #fff; }
+    .compare-wrap .sec-desc  { color: rgba(255,255,255,0.28); }
+
+    .cmp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .cmp-col { padding: 48px 44px; }
+    .cmp-col.bad  { background: #1a1a1a; }
+    .cmp-col.good { background: #121812; }
+
+    .cmp-type {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .cmp-col.bad  .cmp-type { color: #555; }
+    .cmp-col.good .cmp-type { color: #5cb85c; }
+
+    .cmp-title {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.45;
+      letter-spacing: -0.5px;
+      margin-bottom: 34px;
+    }
+    .cmp-col.bad  .cmp-title { color: rgba(255,255,255,0.35); }
+    .cmp-col.good .cmp-title { color: #fff; }
+
+    .cmp-points { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+    .cmp-point  { display: flex; gap: 14px; align-items: flex-start; }
+    .cmp-icon {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+    .bad  .cmp-icon { background: rgba(255,60,60,0.1); color: #f06060; }
+    .good .cmp-icon { background: rgba(80,190,80,0.12); color: #5cb85c; }
+    .cmp-text { font-size: 13.5px; line-height: 1.7; }
+    .cmp-text strong { display: block; font-size: 13.5px; font-weight: 600; margin-bottom: 3px; }
+    .bad  .cmp-text strong { color: rgba(255,255,255,0.45); }
+    .bad  .cmp-text        { color: rgba(255,255,255,0.25); }
+    .good .cmp-text strong { color: #fff; }
+    .good .cmp-text        { color: rgba(255,255,255,0.45); }
+
+    /* ══════════════════════════
+       CTA
+    ══════════════════════════ */
+    .cta-section {
+      background: #fff;
+      padding: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #eee;
+    }
+    .cta-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: #c9a030;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .cta-heading {
+      font-size: 32px;
+      font-weight: 900;
+      color: #111;
+      letter-spacing: -0.8px;
+      line-height: 1.2;
+    }
+    .cta-right { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+    .cta-note  { font-size: 12px; color: #bbb; }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #111;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 17px 38px;
+      border-radius: 3px;
+      text-decoration: none;
+      letter-spacing: -0.2px;
+      cursor: pointer;
+    }
+    .cta-btn .arr { color: #c9a030; font-size: 17px; }
+
+    /* ══════════════════════════
+       MOBILE (max 768px)
+    ══════════════════════════ */
+    @media (max-width: 768px) {
+
+      /* NAV */
+      .gnb { padding: 0 20px; height: 58px; }
+      .gnb-menu { display: none; }
+      .gnb-logo { font-size: 15px; }
+      .gnb-cta { font-size: 11px; padding: 8px 14px; }
+
+      /* HERO */
+      .slider-wrap { height: 38svh; min-height: 240px; max-height: 300px; }
+      .slide-left { flex: 0 0 48%; padding: 0 14px 0 18px; }
+      .slide-right { flex: 0 0 52%; }
+      .slide-right img {
+        height: 80%;
+        right: -30px;
+        bottom: 0;
+        top: auto;
+        transform: none;
+        width: auto;
+        left: auto;
+        object-fit: unset;
+      }
+      .slide-eyebrow { display: none; }
+
+      .slide-eyebrow { font-size: 8px; letter-spacing: 2px; margin-bottom: 10px; }
+      .slide-title { font-size: 16px; letter-spacing: -0.5px; margin-bottom: 10px; line-height: 1.35; }
+      .slide-sub { font-size: 10px; line-height: 1.65; margin-bottom: 18px; max-width: 100%; }
+      .slide-btn { font-size: 10px; padding: 10px 14px; gap: 6px; white-space: nowrap; }
+      .slide-btn-arrow { font-size: 12px; }
+
+      .slider-bottom { padding: 0 20px; bottom: 16px; }
+      .pg-current { font-size: 22px; }
+      .pg-total { font-size: 10px; }
+      .pg-line-full { width: 32px; }
+      .ctrl-circle { width: 32px; height: 32px; }
+      .ctrl-svg { width: 32px; height: 32px; }
+      .scroll-hint { display: none; }
+
+      /* STATS BAR */
+      .stats-bar { flex-wrap: wrap; }
+      .stat-cell { flex: 0 0 50%; border-bottom: 1px solid #eee; padding: 20px 0; }
+      .stat-cell:nth-child(2) { border-right: none; }
+      .stat-num { font-size: 26px; }
+      .stat-label { font-size: 10px; }
+
+      /* SECTION */
+      .sec-wrap { padding: 48px 24px; }
+      .sec-title { font-size: 24px; }
+      .sec-desc { font-size: 13px; }
+      .sec-head { margin-bottom: 32px; }
+
+      /* TEACHER GRID */
+      .teachers-wrap { padding: 0 24px 56px; }
+      .teacher-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .t-name { font-size: 14px; }
+      .t-subject { font-size: 9px; }
+      .t-career li { font-size: 11px; }
+      .t-info { padding: 14px 14px 18px; }
+      .t-quote { font-size: 11px; }
+      .t-initial { font-size: 70px; }
+
+      /* COMPARE */
+      .compare-wrap { padding: 56px 24px; }
+      .cmp-grid { grid-template-columns: 1fr; gap: 2px; }
+      .cmp-col { padding: 32px 28px; }
+      .cmp-title { font-size: 18px; margin-bottom: 24px; }
+      .cmp-text { font-size: 12.5px; }
+      .cmp-text strong { font-size: 12.5px; }
+
+      /* CTA */
+      .cta-section { padding: 48px 24px; flex-direction: column; align-items: flex-start; gap: 28px; }
+      .cta-heading { font-size: 26px; }
+      .cta-right { align-items: flex-start; }
+      .cta-btn { font-size: 14px; padding: 16px 32px; width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav class="gnb">
+    <div class="gnb-logo">TOP<span>CLASS</span></div>
+    <ul class="gnb-menu">
+      <li>서비스 소개</li>
+      <li class="active">강사진</li>
+      <li>수업 방식</li>
+      <li>합격 후기</li>
+    </ul>
+    <div class="gnb-cta">무료 상담 신청</div>
+  </nav>
+
+  <!-- ── HERO SLIDER ── -->
+  <div class="slider-wrap">
+
+    <!-- 좌측: 텍스트 -->
+    <div class="slide-left">
+      <div class="slide-content">
+        <p class="slide-eyebrow">Premium Online Tutoring</p>
+        <h1 class="slide-title">
+          "과외 선생님이<br><span class="gold">9할</span>인거 아시죠?"
+        </h1>
+        <p class="slide-sub">
+          인맥으로 뽑힌 선생님 말고,<br>
+          <b>검증된 상위 1% 강사진</b>으로.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- 우측: 선생님 이미지 -->
+    <div class="slide-right">
+      <img src="1.png" alt="선생님">
+    </div>
+
+  </div>
+
+  <!-- ── STATS BAR ── -->
+  <div class="stats-bar">
+    <div class="stat-cell">
+      <div class="stat-num">98<em>%</em></div>
+      <div class="stat-label">성적 향상률</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">4.9<em>점</em></div>
+      <div class="stat-label">평균 강사 평점</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">100<em>%</em></div>
+      <div class="stat-label">전체 수업 녹화</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">500<em>+</em></div>
+      <div class="stat-label">누적 수강생</div>
+    </div>
+  </div>
+
+  <!-- ── TEACHER SECTION ── -->
+  <div class="teachers-bg-wrap">
+  <section class="sec-wrap" style="background:transparent; padding-bottom:0;">
+    <div class="sec-head">
+      <p class="sec-label">Our Tutors</p>
+      <h2 class="sec-title">검증된 강사진</h2>
+      <p class="sec-desc">학벌이 아닌, 실제 성과로 증명한 선생님들입니다.</p>
+    </div>
+  </section>
+  <section style="padding: 0 72px 80px; background:transparent;">
+    <div class="teacher-grid">
+
+      <div class="teacher-card">
+        <div class="t-photo">
+          <div class="t-photo-bg" style="background:linear-gradient(160deg,#1b2d4a,#0d1a2e);">
+            <div class="t-initial">金</div>
+          </div>
+          <div class="t-tag">수학 · 물리</div>
+          <div class="t-bottom">
+            <p class="t-quote">이해 없는 암기는 모래 위의 집이다</p>
+          </div>
+        </div>
+        <div class="t-info">
+          <div class="t-name">김민준 선생님</div>
+          <div class="t-subject">Math · Physics</div>
+          <div class="t-divider"></div>
+          <ul class="t-career">
+            <li>서울대학교 수학과 수석 졸업</li>
+            <li>수능 수학 만점 · 3년 연속 수상</li>
+            <li>누적 수강생 200명 1등급 향상</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="teacher-card">
+        <div class="t-photo">
+          <div class="t-photo-bg" style="background:linear-gradient(160deg,#2d1b4a,#1a0d2e);">
+            <div class="t-initial">李</div>
+          </div>
+          <div class="t-tag">영어 · 영문학</div>
+          <div class="t-bottom">
+            <p class="t-quote">언어는 사고의 틀이다, 넓혀라</p>
+          </div>
+        </div>
+        <div class="t-info">
+          <div class="t-name">이서연 선생님</div>
+          <div class="t-subject">English · Literature</div>
+          <div class="t-divider"></div>
+          <ul class="t-career">
+            <li>연세대학교 영문학과 졸업 GPA 4.3</li>
+            <li>토익 990점 · 텝스 600점 만점</li>
+            <li>수능 영어 1등급 배출 150명+</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="teacher-card">
+        <div class="t-photo">
+          <div class="t-photo-bg" style="background:linear-gradient(160deg,#1b3a2a,#0d2018);">
+            <div class="t-initial">朴</div>
+          </div>
+          <div class="t-tag">화학 · 생명과학</div>
+          <div class="t-bottom">
+            <p class="t-quote">원리를 알면 암기가 필요 없다</p>
+          </div>
+        </div>
+        <div class="t-info">
+          <div class="t-name">박지호 선생님</div>
+          <div class="t-subject">Chemistry · Biology</div>
+          <div class="t-divider"></div>
+          <ul class="t-career">
+            <li>KAIST 화학과 박사 과정 수료</li>
+            <li>한국 화학올림피아드 금메달</li>
+            <li>의대 입시반 전문 · 합격률 89%</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="teacher-card">
+        <div class="t-photo">
+          <div class="t-photo-bg" style="background:linear-gradient(160deg,#3a1b1b,#200d0d);">
+            <div class="t-initial">崔</div>
+          </div>
+          <div class="t-tag">국어 · 논술</div>
+          <div class="t-bottom">
+            <p class="t-quote">글쓰기는 생각의 근육을 키우는 일이다</p>
+          </div>
+        </div>
+        <div class="t-info">
+          <div class="t-name">최수아 선생님</div>
+          <div class="t-subject">Korean · Essay</div>
+          <div class="t-divider"></div>
+          <ul class="t-career">
+            <li>고려대학교 국문학과 우등 졸업</li>
+            <li>수능 국어 만점 · 언어논리 전문</li>
+            <li>SKY 논술 합격생 다수 배출</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="teacher-card">
+        <div class="t-photo">
+          <div class="t-photo-bg" style="background:linear-gradient(160deg,#1b1f3a,#0d1020);">
+            <div class="t-initial">鄭</div>
+          </div>
+          <div class="t-tag">수학 · 통계</div>
+          <div class="t-bottom">
+            <p class="t-quote">수학은 세상을 설명하는 가장 정직한 언어</p>
+          </div>
+        </div>
+        <div class="t-info">
+          <div class="t-name">정현우 선생님</div>
+          <div class="t-subject">Math · Statistics</div>
+          <div class="t-divider"></div>
+          <ul class="t-career">
+            <li>포항공대 수학과 졸업 수석</li>
+            <li>KMO 한국수학올림피아드 은메달</li>
+            <li>이과 최상위권 · 평균 2등급 향상</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="teacher-card">
+        <div class="t-photo">
+          <div class="t-photo-bg" style="background:linear-gradient(160deg,#2e2a10,#1a1808);">
+            <div class="t-initial">韓</div>
+          </div>
+          <div class="t-tag">사탐 · 한국사</div>
+          <div class="t-bottom">
+            <p class="t-quote">역사를 모르면 미래를 설계할 수 없다</p>
+          </div>
+        </div>
+        <div class="t-info">
+          <div class="t-name">한예진 선생님</div>
+          <div class="t-subject">Social · History</div>
+          <div class="t-divider"></div>
+          <ul class="t-career">
+            <li>서울대학교 사범대 사회교육과</li>
+            <li>한국사능력검정 1급 · 교원자격증</li>
+            <li>탐구 전문 · 1등급 달성률 92%</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  </div>
+
+  <!-- ── COMPARE ── -->
+  <section class="compare-wrap">
+    <div class="sec-head">
+      <p class="sec-label">Why Online?</p>
+      <h2 class="sec-title" style="color:#fff;">방문 과외 vs 온라인 과외</h2>
+      <p class="sec-desc" style="color:rgba(255,255,255,0.28);">어떤 방식이 우리 아이에게 진짜 도움이 될까요?</p>
+    </div>
+    <div class="cmp-grid">
+      <div class="cmp-col bad">
+        <div class="cmp-type">방문 과외</div>
+        <div class="cmp-title">수업이 끝나면<br>기억이 흐려집니다</div>
+        <ul class="cmp-points">
+          <li class="cmp-point">
+            <div class="cmp-icon"></div>
+            <div class="cmp-text">
+              <strong>수업 내용을 그날 못 잡으면 끝</strong>
+              꼼꼼한 학생이 아니면 필기를 놓치고, 진도만 밀립니다.
+            </div>
+          </li>
+          <li class="cmp-point">
+            <div class="cmp-icon"></div>
+            <div class="cmp-text">
+              <strong>복습이 사실상 불가능</strong>
+              선생님이 어떻게 설명했는지 기억에만 의존해야 합니다.
+            </div>
+          </li>
+          <li class="cmp-point">
+            <div class="cmp-icon"></div>
+            <div class="cmp-text">
+              <strong>강사 교체도 눈치 보임</strong>
+              맞지 않아도 끊기 어렵고, 새 선생님 구하는 데 시간이 걸립니다.
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="cmp-col good">
+        <div class="cmp-type">TOP CLASS 온라인</div>
+        <div class="cmp-title">모든 수업이<br>내 것으로 남습니다</div>
+        <ul class="cmp-points">
+          <li class="cmp-point">
+            <div class="cmp-icon"></div>
+            <div class="cmp-text">
+              <strong>전체 수업 100% 녹화 제공</strong>
+              언제든 다시 돌려보며 완전히 이해할 때까지 복습 가능합니다.
+            </div>
+          </li>
+          <li class="cmp-point">
+            <div class="cmp-icon"></div>
+            <div class="cmp-text">
+              <strong>시험 전날 핵심 구간만 빠르게 재생</strong>
+              중요한 개념 구간 북마크 후 시험 직전 바로 확인합니다.
+            </div>
+          </li>
+          <li class="cmp-point">
+            <div class="cmp-icon"></div>
+            <div class="cmp-text">
+              <strong>검증된 강사 · 간편한 매칭</strong>
+              실력 기반 선발 강사를 빠르게 매칭하고 언제든 변경 가능합니다.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-section">
+    <div>
+      <p class="cta-label">Start Today</p>
+      <h2 class="cta-heading">지금 바로<br>시작하세요</h2>
+    </div>
+    <div class="cta-right">
+      <span class="cta-note">첫 수업 무료 체험 · 언제든지 취소 가능</span>
+      <a href="#" class="cta-btn">무료 체험 신청하기 <span class="arr">→</span></a>
+    </div>
+  </section>
+
+</body>
+</html>

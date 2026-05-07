@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOPCLASS 프리미엄 온라인 과외</title>
+  <link rel="icon" href="LOGO.webp" type="image/webp">
+  <link rel="apple-touch-icon" href="LOGO.webp">
+  <link rel="preload" as="image" href="53a42e67-615e-4665-b2ff-e18ad708ca7b.jpg" media="(min-width:769px)" fetchpriority="high">
+  <link rel="preload" as="image" href="mobile.webp" media="(max-width:768px)" fetchpriority="high">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap&display=swap" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="style.css?v=2">
+  <style>
+    .gold{color:#c9a030;font-style:normal;}
+    .cmp-foot-main{color:#111 !important;}
+    .cmp-foot-main .gold{color:#c9a030 !important;}
+
+    /* ── REFUND GUARANTEE ── */
+    .refund-section{
+      background:linear-gradient(135deg,#b8860b 0%,#e8c84a 35%,#c9a030 55%,#a07820 80%,#8b6914 100%);
+      padding:28px 24px;
+      position:relative;
+    }
+    .refund-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:rgba(255,255,255,0.5);}
+    .refund-section::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:rgba(0,0,0,0.2);}
+    .refund-inner{
+      max-width:700px;margin:0 auto;
+      display:flex;align-items:center;justify-content:center;
+      gap:32px;
+    }
+    .refund-left{text-align:center;flex-shrink:0;}
+    .refund-sub{
+      font-size:0.78rem;font-weight:700;
+      color:rgba(0,0,0,0.55);letter-spacing:0.06em;
+      margin-bottom:6px;
+    }
+    .refund-main{
+      font-size:2rem;font-weight:900;
+      color:#111;letter-spacing:-0.04em;line-height:1.1;
+    }
+    .refund-vline{
+      flex-shrink:0;width:1px;height:48px;
+      background:rgba(0,0,0,0.2);
+    }
+    .refund-right{text-align:left;}
+    .refund-desc{
+      font-size:0.95rem;font-weight:700;
+      color:rgba(0,0,0,0.65);line-height:1.75;
+    }
+    @media(max-width:480px){
+      .refund-inner{flex-direction:column;gap:0;text-align:center;}
+      .refund-vline{width:40px;height:1px;margin:16px auto;}
+      .refund-right{text-align:center;}
+      .refund-main{font-size:1.7rem;}
+    }
+
+    /* ── TEACHER CHANGE ── */
+    .change-section{
+      background:#0d0d0d;padding:90px 24px 100px;
+      border-top:1px solid rgba(255,255,255,0.05);
+    }
+    .change-inner{max-width:700px;margin:0 auto;}
+    .change-header{margin-bottom:52px;}
+    .change-tag{
+      display:inline-block;
+      font-size:0.62rem;font-weight:700;color:#c9a030;
+      letter-spacing:0.2em;text-transform:uppercase;
+      border:1px solid rgba(201,160,48,0.4);
+      padding:5px 14px;border-radius:20px;margin-bottom:20px;
+    }
+    .change-question{
+      font-size:2.2rem;font-weight:900;color:#fff;
+      letter-spacing:-0.04em;line-height:1.3;
+    }
+    .change-list{display:flex;flex-direction:column;gap:14px;}
+    .change-card{
+      display:flex;align-items:center;gap:24px;
+      background:#161616;
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:14px;
+      padding:28px 28px;
+      transition:border-color 0.25s,transform 0.25s;
+    }
+    .change-card:hover{
+      border-color:rgba(201,160,48,0.35);
+      transform:translateX(6px);
+    }
+    .change-card--gold{
+      background:linear-gradient(135deg,#1b1400,#140f00);
+      border-color:rgba(201,160,48,0.45);
+      box-shadow:0 0 32px rgba(201,160,48,0.06);
+    }
+    .change-card--gold:hover{border-color:#c9a030;}
+    .change-card-num{
+      flex-shrink:0;
+      font-size:1.6rem;font-weight:900;
+      color:rgba(201,160,48,0.2);
+      letter-spacing:-0.03em;line-height:1;
+      width:44px;
+    }
+    .change-card--gold .change-card-num{color:rgba(201,160,48,0.6);}
+    .change-card-line{
+      flex-shrink:0;width:1px;height:40px;
+      background:rgba(255,255,255,0.08);
+    }
+    .change-card--gold .change-card-line{background:rgba(201,160,48,0.3);}
+    .change-card-title{
+      font-size:1.05rem;font-weight:800;color:#fff;
+      letter-spacing:-0.02em;margin-bottom:5px;
+    }
+    .change-card--gold .change-card-title{color:#c9a030;}
+    .change-card-desc{
+      font-size:0.82rem;font-weight:400;
+      color:rgba(255,255,255,0.4);line-height:1.6;
+    }
+    @media(min-width:769px){
+      .change-question{font-size:2.8rem;}
+      .change-card{padding:32px 36px;}
+      .change-card-num{font-size:2rem;width:52px;}
+    }
+
+    /* ── PREMIUM FEATURES ── */
+    .feat-section{background:#0d0d0d;display:block;}
+    .feat-img{width:100%;display:block;}
+    .price-section{background:#111;padding:80px 20px 100px;border-top:2px solid #1e1e1e;}
+    .price-inner{max-width:900px;margin:0 auto;text-align:center;}
+    .price-sub{font-size:1.1rem;font-weight:600;color:rgba(255,255,255,0.45);letter-spacing:0.04em;margin-bottom:16px;}
+    @media(min-width:769px){.price-sub{font-size:1.35rem;}}
+    .price-tmain{font-size:2.2rem;font-weight:900;color:#fff;letter-spacing:-0.04em;margin-bottom:52px;}
+    .price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+    @media(min-width:769px){.price-grid{grid-template-columns:repeat(4,1fr);gap:20px;}.price-tmain{font-size:2.8rem;}}
+    .price-card{background:#1c1c1c;border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:32px 20px;text-align:center;}
+    .price-card--featured{background:#1b1300;border:1px solid rgba(201,160,48,0.55);box-shadow:0 0 32px rgba(201,160,48,0.08);}
+    .price-level{font-size:0.72rem;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:16px;}
+    .price-card--featured .price-level{color:rgba(201,160,48,0.7);}
+    .price-val{font-size:1.8rem;font-weight:900;color:#fff;letter-spacing:-0.02em;}
+    .price-won{font-size:1rem;font-weight:600;color:rgba(255,255,255,0.45);}
+    .price-card--featured .price-val{color:#c9a030;}
+
+    /* ── CTA ── */
+    .cta-section{background:#fff;padding:100px 24px 110px;}
+    .cta-inner{max-width:520px;margin:0 auto;text-align:center;}
+
+    .cta-eyebrow{display:inline-block;font-size:0.62rem;font-weight:700;
+      color:#c9a030;letter-spacing:0.22em;text-transform:uppercase;
+      border:1px solid rgba(201,160,48,0.4);padding:5px 16px;border-radius:20px;
+      margin-bottom:28px;}
+
+    .cta-title{font-size:3rem;font-weight:900;color:#111;
+      letter-spacing:-0.04em;line-height:1.15;margin-bottom:20px;}
+    .cta-title em{font-style:normal;color:#c9a030;}
+
+    .cta-body{font-size:1rem;font-weight:400;color:#888;
+      line-height:1.85;margin-bottom:0;}
+
+    .cta-divider{width:1px;height:56px;background:rgba(0,0,0,0.1);
+      margin:52px auto;}
+
+    .cta-label{font-size:1.3rem;font-weight:800;color:#111;
+      letter-spacing:-0.01em;margin-bottom:16px;}
+
+    .cta-phone{display:block;font-size:2.4rem;font-weight:900;
+      color:#c9a030;letter-spacing:-0.02em;text-decoration:none;
+      margin-bottom:10px;transition:opacity 0.2s;}
+    .cta-phone:hover{opacity:0.75;}
+
+    .cta-hint{font-size:0.8rem;color:#bbb;font-weight:400;
+      line-height:1.7;margin-bottom:44px;}
+
+    .cta-btn{display:inline-flex;align-items:center;gap:10px;
+      background:#111;color:#fff;text-decoration:none;
+      font-size:0.85rem;font-weight:700;letter-spacing:0.06em;
+      padding:18px 40px;border-radius:4px;
+      transition:background 0.25s,transform 0.2s,box-shadow 0.25s;}
+    .cta-btn:hover{background:#c9a030;transform:translateY(-2px);
+      box-shadow:0 12px 32px rgba(201,160,48,0.25);}
+    .cta-btn svg{transition:transform 0.2s;}
+    .cta-btn:hover svg{transform:translateX(4px);}
+
+    .cta-nationwide-wrap{
+      margin-top:0;
+      margin-bottom:64px;
+      padding:48px 32px 44px;
+      background:#0d0d0d;
+      border-radius:20px;
+      position:relative;
+      overflow:hidden;
+    }
+    .cta-nationwide-wrap::before{
+      content:'';position:absolute;inset:0;
+      background:radial-gradient(ellipse 80% 60% at 50% 100%, rgba(201,160,48,0.1) 0%, transparent 70%);
+      pointer-events:none;
+    }
+    .cta-nationwide-line{
+      display:block;width:36px;height:2px;
+      background:#c9a030;margin:0 auto 28px;
+    }
+    .cta-nationwide{
+      font-size:2.2rem;font-weight:900;
+      color:#fff;letter-spacing:-0.03em;line-height:1.2;
+      margin-bottom:14px;
+    }
+    .cta-nationwide em{font-style:normal;color:#c9a030;}
+    .cta-nationwide-sub{
+      display:block;font-size:0.83rem;font-weight:400;
+      color:rgba(255,255,255,0.4);line-height:1.8;
+    }
+    @media(min-width:769px){
+      .cta-nationwide{font-size:3rem;}
+    }
+    @media(max-width:480px){
+      .cta-title{font-size:2.2rem;}
+      .cta-phone{font-size:1.9rem;}
+      .cta-btn{padding:16px 28px;width:100%;justify-content:center;}
+      .cta-nationwide{font-size:1.55rem;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="gnb">
+    <div class="gnb-logo">
+      <div class="gnb-logo-icon">
+        <img src="LOGO.webp" alt="TOPCLASS" loading="eager">
+      </div>
+      <div class="gnb-logo-text">TOP<span>CLASS</span></div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <img class="hero-bg-mobile" src="mobile.webp" alt="" fetchpriority="high">
+    <div class="hero-fade"></div>
+
+    <div class="hero-content">
+      <p class="hero-small" style="white-space: nowrap">과외는 선생님이 9할인거 아시죠?</p>
+      <div class="hero-line">
+        <div class="hero-line-bar"></div>
+      </div>
+      <h1 class="hero-title">우리 선생님은<br>다릅니다</h1>
+      <p class="hero-desc">
+        인맥과 소개 받은 선생님 말고,<br>
+        <b>TOP CLASS는 상위 1%로</b><br>
+        엄선했습니다.
+      </p>
+    </div>
+
+    <!-- 하단 컨트롤 -->
+    <div class="hero-bottom">
+      <div class="pg-wrap">
+        <span class="pg-current">01</span>
+        <div class="pg-sep-line"></div>
+        <span>03</span>
+      </div>
+      <div class="ctrl-wrap">
+        <div class="ctrl-btn play">▶</div>
+        <div class="ctrl-btn">⏸</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══ TEACHERS ══ -->
+  <section class="teachers">
+
+    <div class="teachers-header">
+      <p class="teachers-label">Our Teachers</p>
+      <h2 class="teachers-title"><span class="gold">상위 1%</span> 과외교사</h2>
+      <p class="teachers-sub">좋은 학교는 기본이고 가르침의 경력이 다른 선생님</p>
+      <p style="margin-top:14px; font-size:12px; font-weight:400; color:rgba(255,255,255,0.25); letter-spacing:0.5px;">카드를 눌러 상세 경력을 확인하세요</p>
+    </div>
+
+    <div class="teachers-grid">
+
+      <!-- 강사 1 -->
+      <div class="teacher-card" onclick="openModal(this)">
+        <div class="teacher-photo"><img src="강사진/1.webp" loading="lazy" alt="" onerror="this.parentElement.innerHTML='<div class=\'teacher-photo-placeholder\'>👤</div>'"></div>
+        <div class="teacher-info">
+          <div class="teacher-subject">영어</div>
+          <div class="teacher-name">이윤정 선생님</div>
+          <div class="teacher-edu">뉴욕주립대 문학사 국제관계론 전공</div>
+          <span class="teacher-more">자세히 보기 →</span>
+        </div>
+        <div class="teacher-shine"></div>
+        <div class="teacher-plus"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="teacher-data" hidden>
+          <span class="d-img">강사진/1.webp</span>
+          <span class="d-subject">영어</span>
+          <span class="d-name">이윤정 선생님</span>
+          <span class="d-edu">뉴욕주립대 문학사 국제관계론 전공</span>
+          <span class="d-levels">중위권,상위권,최상위권</span>
+          <ul class="d-career"><li>한국 입시컨설턴트 (대치동 메이저맵)</li><li>한국 영어교사 5년 근무</li><li>미국 고등학교 및 대학교 과정 이수</li><li>미국계 글로벌 로펌 근무</li><li>미국 정부 및 비정부 기관 근무</li><li>유엔 연합 (UNA-USA) 총무 (교육단체)</li></ul>
+        </div>
+      </div>
+
+      <!-- 강사 2 -->
+      <div class="teacher-card" onclick="openModal(this)">
+        <div class="teacher-photo"><img src="강사진/2.webp" loading="lazy" alt="" onerror="this.parentElement.innerHTML='<div class=\'teacher-photo-placeholder\'>👤</div>'"></div>
+        <div class="teacher-info">
+          <div class="teacher-subject">수학, 과학</div>
+          <div class="teacher-name">성민준 선생님</div>
+          <div class="teacher-edu">서울대 생물정보학 통합과정 석사</div>
+          <span class="teacher-more">자세히 보기 →</span>
+        </div>
+        <div class="teacher-shine"></div>
+        <div class="teacher-plus"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="teacher-data" hidden>
+          <span class="d-img">강사진/2.webp</span>
+          <span class="d-subject">수학, 과학</span>
+          <span class="d-name">성민준 선생님</span>
+          <span class="d-edu">서울대 생물정보학 통합과정 석사</span>
+          <span class="d-levels">중위권,상위권,최상위권</span>
+          <ul class="d-career"><li>MSU(미시간 주립대학교) 협력 연구 경험 및 국제 학회 oral 발표 다수</li><li>Nucleic Acid Research(생화학 세계 5위권 저널) 등 세계 유명 저널 논문 출판</li><li>연세대학교 우수논문상 수상</li><li>연세대학교 의료원(세브란스) 의대 대학원생 수업</li><li>연세대학교 시스템생물학과 연구교수 경력</li><li>2026/2027 수능대비 자이스토리 과학 검토진 (생명과학1 & 2)</li><li>중고등학생 성적 향상 경험 다수</li></ul>
+        </div>
+      </div>
+
+      <!-- 강사 3 -->
+      <div class="teacher-card" onclick="openModal(this)">
+        <div class="teacher-photo"><img src="강사진/3.webp" loading="lazy" alt="" onerror="this.parentElement.innerHTML='<div class=\'teacher-photo-placeholder\'>👤</div>'"></div>
+        <div class="teacher-info">
+          <div class="teacher-subject">국어</div>
+          <div class="teacher-name">신이랑 선생님</div>
+          <div class="teacher-edu">연세대(서울캠) 법학과</div>
+          <span class="teacher-more">자세히 보기 →</span>
+        </div>
+        <div class="teacher-shine"></div>
+        <div class="teacher-plus"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="teacher-data" hidden>
+          <span class="d-img">강사진/3.webp</span>
+          <span class="d-subject">국어</span>
+          <span class="d-name">신이랑 선생님</span>
+          <span class="d-edu">연세대(서울캠) 법학과</span>
+          <span class="d-levels">중위권,상위권,최상위권</span>
+          <ul class="d-career"><li>서울대 AI 적성진로 교육전문가 (AI ACE)</li><li>서울 언주중 대면특강</li><li>자이스토리 감수진</li><li>국어 전문학원 국어과 주임 및 팀장 다수 역임</li><li>서울 대치동 S논술학원 근무</li></ul>
+        </div>
+      </div>
+
+      <!-- 강사 4 -->
+      <div class="teacher-card hidden" onclick="openModal(this)">
+        <div class="teacher-photo"><img src="강사진/4.webp" loading="lazy" alt="" onerror="this.parentElement.innerHTML='<div class=\'teacher-photo-placeholder\'>👤</div>'"></div>
+        <div class="teacher-info">
+          <div class="teacher-subject">과학</div>
+          <div class="teacher-name">박상민 선생님</div>
+          <div class="teacher-edu">중앙대 물리학 석사 / 성균관대 물리학 석사</div>
+          <span class="teacher-more">자세히 보기 →</span>
+        </div>
+        <div class="teacher-shine"></div>
+        <div class="teacher-plus"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="teacher-data" hidden>
+          <span class="d-img">강사진/4.webp</span>
+          <span class="d-subject">과학</span>
+          <span class="d-name">박상민 선생님</span>
+          <span class="d-edu">중앙대 물리학 석사 / 성균관대 물리학 석사</span>
+          <span class="d-levels">중위권,상위권,최상위권</span>
+          <ul class="d-career"><li>고체물리실험 전공 — Nature Physics 1저자 논문 게재</li><li>WHOI 연구원 근무</li><li>삼성 및 LG 근무</li><li>과학 전문 유튜브 운영</li><li>과학학원 원장 경험</li></ul>
+        </div>
+      </div>
+
+      <!-- 강사 5 -->
+      <div class="teacher-card hidden" onclick="openModal(this)">
+        <div class="teacher-photo"><img src="강사진/5.webp" loading="lazy" alt="" onerror="this.parentElement.innerHTML='<div class=\'teacher-photo-placeholder\'>👤</div>'"></div>
+        <div class="teacher-info">
+          <div class="teacher-subject">영어</div>
+          <div class="teacher-name">김채원 선생님</div>
+          <div class="teacher-edu">고려대 어문계열</div>
+          <span class="teacher-more">자세히 보기 →</span>
+        </div>
+        <div class="teacher-shine"></div>
+        <div class="teacher-plus"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="teacher-data" hidden>
+          <span class="d-img">강사진/5.webp</span>
+          <span class="d-subject">영어</span>
+          <span class="d-name">김채원 선생님</span>
+          <span class="d-edu">고려대 어문계열</span>
+          <span class="d-levels">중하위권,중위권,상위권</span>
+          <ul class="d-career"><li>성균관대 TESOL 영어 번역대학원 수료</li><li>ESL Program 최상위 레벨 수료</li><li>전 목동 입시 전문학원 주임강사 6년</li><li>대치동 고등부 팀장 출신</li><li>KAC 인증코치, TLC 2급, 플래닝 1급</li></ul>
+        </div>
+      </div>
+
+      <!-- 강사 6 -->
+      <div class="teacher-card hidden" onclick="openModal(this)">
+        <div class="teacher-photo"><img src="강사진/6.webp" loading="lazy" alt="" onerror="this.parentElement.innerHTML='<div class=\'teacher-photo-placeholder\'>👤</div>'"></div>
+        <div class="teacher-info">
+          <div class="teacher-subject">수학</div>
+          <div class="teacher-name">박준영 선생님</div>
+          <div class="teacher-edu">고려대 수학교육과</div>
+          <span class="teacher-more">자세히 보기 →</span>
+        </div>
+        <div class="teacher-shine"></div>
+        <div class="teacher-plus"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="teacher-data" hidden>
+          <span class="d-img">강사진/6.webp</span>
+          <span class="d-subject">수학</span>
+          <span class="d-name">박준영 선생님</span>
+          <span class="d-edu">고려대 수학교육과</span>
+          <span class="d-levels">중위권,상위권,최상위권</span>
+          <ul class="d-career"><li>과외 및 학원강사 10년 경력</li><li>의대 및 인서울 합격자 다수 배출</li><li>수능 수학 만점 (수능 400점 만점 중 385점)</li><li>공군장교 중위 제대</li><li>한국은행·한국거래소·한국예탁결제원 합격</li></ul>
+        </div>
+      </div>
+
+      <!-- 강사 7 -->
+      <div class="teacher-card hidden" onclick="openModal(this)">
+        <div class="teacher-photo"><img src="강사진/7.webp" loading="lazy" alt="" onerror="this.parentElement.innerHTML='<div class=\'teacher-photo-placeholder\'>👤</div>'"></div>
+        <div class="teacher-info">
+          <div class="teacher-subject">영어, 국어, 사회</div>
+          <div class="teacher-name">한상우 선생님</div>
+          <div class="teacher-edu">경희대 정치외교학</div>
+          <span class="teacher-more">자세히 보기 →</span>
+        </div>
+        <div class="teacher-shine"></div>
+        <div class="teacher-plus"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="teacher-data" hidden>
+          <span class="d-img">강사진/7.webp</span>
+          <span class="d-subject">영어, 국어, 사회</span>
+          <span class="d-name">한상우 선생님</span>
+          <span class="d-edu">경희대 정치외교학</span>
+          <span class="d-levels">중하위권,중위권,상위권</span>
+          <ul class="d-career"><li>EBS 주최 중등 영어/국어 멘토</li><li>고등부 입시컨설팅 6년차</li><li>광진구 내신·입시학원 부원장</li><li>주한스페인상공회의소 문화행사 통역 경험</li><li>Tesla Korea 근무</li><li>Good Monday 글로벌 마케팅팀 근무</li><li>미국 Amazon 근무</li></ul>
+        </div>
+      </div>
+
+      <!-- 강사 8 -->
+      <div class="teacher-card hidden" onclick="openModal(this)">
+        <div class="teacher-photo"><img src="강사진/8.webp" loading="lazy" alt="" onerror="this.parentElement.innerHTML='<div class=\'teacher-photo-placeholder\'>👤</div>'"></div>
+        <div class="teacher-info">
+          <div class="teacher-subject">수학, 과학</div>
+          <div class="teacher-name">강다정 선생님</div>
+          <div class="teacher-edu">연세대 컴퓨터공학과</div>
+          <span class="teacher-more">자세히 보기 →</span>
+        </div>
+        <div class="teacher-shine"></div>
+        <div class="teacher-plus"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="teacher-data" hidden>
+          <span class="d-img">강사진/8.webp</span>
+          <span class="d-subject">수학, 과학</span>
+          <span class="d-name">강다정 선생님</span>
+          <span class="d-edu">연세대 컴퓨터공학과</span>
+          <span class="d-levels">중하위권,중위권,상위권</span>
+          <ul class="d-career"><li>지역 강의 9년차 — 연세·고려·성균관·경희 입학생 다수 배출</li><li>이화여대 학생 AI 강의 경험</li><li>25년도 도쿄공대 인공지능 로봇 석사과정</li><li>전 NEST(전국 대학생 창업 동아리) 홍보팀장</li><li>청소년학습코칭 TLC 자격증</li><li>Texas Dallas Nursing 전공 유학 경험</li><li>25학년도 수학 개정과정 강의</li></ul>
+        </div>
+      </div>
+
+      <!-- 강사 9 -->
+      <div class="teacher-card hidden" onclick="openModal(this)">
+        <div class="teacher-photo"><img src="강사진/9.webp" loading="lazy" alt="" onerror="this.parentElement.innerHTML='<div class=\'teacher-photo-placeholder\'>👤</div>'"></div>
+        <div class="teacher-info">
+          <div class="teacher-subject">사회, 영어, 국어</div>
+          <div class="teacher-name">원종혁 선생님</div>
+          <div class="teacher-edu">모스크바 국립대 수석</div>
+          <span class="teacher-more">자세히 보기 →</span>
+        </div>
+        <div class="teacher-shine"></div>
+        <div class="teacher-plus"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="teacher-data" hidden>
+          <span class="d-img">강사진/9.webp</span>
+          <span class="d-subject">사회, 영어, 국어</span>
+          <span class="d-name">원종혁 선생님</span>
+          <span class="d-edu">모스크바 국립대 수석</span>
+          <span class="d-levels">중하위권,중위권,상위권</span>
+          <ul class="d-career"><li>International Language Group (국제언어문화연구회) 창립자</li><li>전교 150등 → 전교 1등 지도 사례</li><li>고3 영어 5등급 → 2등급 (10개월)</li><li>인천폴리텍 미디어액트 강사 경력</li><li>KCPA 한국코칭심리협회 청소년학습코칭 3급</li><li>논술·면접 대학/특목고/국제고/외고 합격 사례 다수</li><li>외교부 외교관 양성 프로그램 수료</li></ul>
+        </div>
+      </div>
+
+      <!-- 강사 10 -->
+      <div class="teacher-card hidden" onclick="openModal(this)">
+        <div class="teacher-photo"><img src="강사진/10.webp" loading="lazy" alt="" onerror="this.parentElement.innerHTML='<div class=\'teacher-photo-placeholder\'>👤</div>'"></div>
+        <div class="teacher-info">
+          <div class="teacher-subject">수학</div>
+          <div class="teacher-name">남지현 선생님</div>
+          <div class="teacher-edu">이화여대 통계학과</div>
+          <span class="teacher-more">자세히 보기 →</span>
+        </div>
+        <div class="teacher-shine"></div>
+        <div class="teacher-plus"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="teacher-data" hidden>
+          <span class="d-img">강사진/10.webp</span>
+          <span class="d-subject">수학</span>
+          <span class="d-name">남지현 선생님</span>
+          <span class="d-edu">이화여대 통계학과</span>
+          <span class="d-levels">중하위권,중위권,상위권</span>
+          <ul class="d-career"><li>옥스퍼드브룩스대학 회계학과 석사</li><li>공부9도 개발 참여</li><li>강남 대치동 8학군 출신</li><li>KAC 인증코치, TLC 2급, 플래닝 1급</li><li>대치권 학원 수학 강사</li></ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="teachers-more-wrap">
+      <button class="teachers-more-btn" id="moreBtn">
+        <span class="btn-text">강사진 더보기</span>
+        <span class="btn-chevron">
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </button>
+    </div>
+
+  </section>
+
+<!-- ══ REFUND GUARANTEE SECTION ══ -->
+<section class="refund-section">
+  <div class="refund-inner">
+    <div class="refund-left">
+      <p class="refund-sub">첫 수업 후 불만족 시</p>
+      <h2 class="refund-main">100% 환불 보장</h2>
+    </div>
+    <div class="refund-vline"></div>
+    <div class="refund-right">
+      <p class="refund-desc">자신있게 제안합니다.<br>상담 후 체험수업까지만 받아보세요.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPARISON SECTION ===== -->
+<section class="cmp-section">
+  <div class="cmp-inner">
+
+    <p class="cmp-num">02</p>
+    <p class="cmp-tsub">방문 과외와 비교되는</p>
+    <h2 class="cmp-tmain">프리미엄 비대면 과외</h2>
+
+    <div class="cmp-stage">
+      <div class="cmp-card">
+
+        <div class="cmp-card-head">
+          <div class="cmp-col-label cmp-col-label--L">일반 방문 과외</div>
+          <div class="cmp-vs-badge">VS</div>
+          <div class="cmp-col-label cmp-col-label--R">TOP CLASS</div>
+        </div>
+
+        <div class="cmp-table">
+
+          <div class="cmp-row">
+            <div class="cmp-item cmp-item--L">지역 내 한정</div>
+            <div class="cmp-cat">선생님</div>
+            <div class="cmp-item cmp-item--R">전국구 최상위</div>
+          </div>
+
+          <div class="cmp-row">
+            <div class="cmp-item cmp-item--L">정형화된 지도</div>
+            <div class="cmp-cat">커리큘럼</div>
+            <div class="cmp-item cmp-item--R">학생에 맞춘 지도</div>
+          </div>
+
+          <div class="cmp-row">
+            <div class="cmp-item cmp-item--L">수업 끝나면 끝</div>
+            <div class="cmp-cat">복습</div>
+            <div class="cmp-item cmp-item--R">녹화 무한재생</div>
+          </div>
+
+          <div class="cmp-row">
+            <div class="cmp-item cmp-item--L">형식적 관리</div>
+            <div class="cmp-cat">관리</div>
+            <div class="cmp-item cmp-item--R">1:1 밀착관리</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="cmp-foot">
+      <span class="cmp-foot-tag">전국 수업 가능</span>
+      <p class="cmp-foot-main">어디든 <span class="gold">최상위 선생님</span>을 배정</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== FAQ SECTION ===== -->
+<section class="faq-section">
+  <p class="faq-num">03</p>
+  <h2 class="faq-title">인터넷 강의<br><em>아닌가요?</em></h2>
+
+  <div class="faq-gif-wrap">
+    <img src="gif_small.webp" alt="실시간 화상 수업 장면" loading="lazy">
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-item-label">실시간 쌍방향</p>
+    <p class="faq-desc">
+      <strong>쌍방향으로 소통하는</strong><br>
+      방문과외랑 다를게 없습니다
+    </p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-item-label">판서</p>
+    <p class="faq-desc">
+      <strong>선생님과 학생 모두 판서 가능</strong><br>
+      실시간 질문하며 수업
+    </p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-item-label">녹화 복습</p>
+    <p class="faq-desc">
+      <strong>수업 전체를 녹화하여 제공</strong><br>
+      복습이 제일 중요합니다
+    </p>
+  </div>
+</section>
+
+<!-- ===== SLIDE SECTION ===== -->
+<section class="slide-section">
+  <div class="slide-header">
+    <p class="slide-num2">04</p>
+    <h2 class="slide-title">TOP<em>CLASS</em> 합격생</h2>
+  </div>
+
+  <div class="slide-wrap-outer">
+    <button class="slide-arrow slide-arrow--prev" id="slidePrev" aria-label="이전">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="slide-arrow slide-arrow--next" id="slideNext" aria-label="다음">
+      <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+    </button>
+
+  <div class="slide-track-wrap">
+    <div class="slide-track" id="slideTrack">
+      <div class="slide-item"><img src="123w/1.webp" alt="" loading="lazy"></div>
+      <div class="slide-item"><img src="123w/2.webp" alt="" loading="lazy"></div>
+      <div class="slide-item"><img src="123w/3.webp" alt="" loading="lazy"></div>
+      <div class="slide-item"><img src="123w/4.webp" alt="" loading="lazy"></div>
+      <div class="slide-item"><img src="123w/5.webp" alt="" loading="lazy"></div>
+      <div class="slide-item"><img src="123w/6.webp" alt="" loading="lazy"></div>
+      <div class="slide-item"><img src="123w/7.webp" alt="" loading="lazy"></div>
+      <div class="slide-item"><img src="123w/8.webp" alt="" loading="lazy"></div>
+      <div class="slide-item"><img src="123w/9.webp" alt="" loading="lazy"></div>
+      <div class="slide-item"><img src="123w/10.webp" alt="" loading="lazy"></div>
+      <div class="slide-item"><img src="123w/11.webp" alt="" loading="lazy"></div>
+    </div>
+  </div>
+  </div>
+
+  <div class="slide-dots" id="slideDots"></div>
+
+  <p class="slide-foot">이 중 절반은 중하위권이였습니다</p>
+</section>
+
+<!-- ══ TEACHER CHANGE SECTION ══ -->
+<section class="change-section">
+  <div class="change-inner">
+
+    <div class="change-header">
+      <span class="change-tag">선생님 교체 보장</span>
+      <h2 class="change-question">혹시 선생님이<br>마음에 안 드신다면?</h2>
+    </div>
+
+    <div class="change-list">
+
+      <div class="change-card">
+        <div class="change-card-num">01</div>
+        <div class="change-card-line"></div>
+        <div class="change-card-body">
+          <p class="change-card-title">매니저 직접 연결</p>
+          <p class="change-card-desc">과외 매니저에게 불편한<br>사항을 말씀해주세요</p>
+        </div>
+      </div>
+
+      <div class="change-card change-card--gold">
+        <div class="change-card-num">02</div>
+        <div class="change-card-line"></div>
+        <div class="change-card-body">
+          <p class="change-card-title">무제한 교체</p>
+          <p class="change-card-desc">추가 비용 없이 선생님을<br>무제한으로 교체</p>
+        </div>
+      </div>
+
+      <div class="change-card">
+        <div class="change-card-num">03</div>
+        <div class="change-card-line"></div>
+        <div class="change-card-body">
+          <p class="change-card-title">무료 수업 추가</p>
+          <p class="change-card-desc">교체할 때마다 무료수업을<br>추가로 제공</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== ADMISSIONS SECTION ===== -->
+<section class="adm-section">
+  <div class="adm-inner">
+
+    <div class="adm-news">
+      <img class="adm-news-img1" src="newspaper_bm.webp" alt="2028 대학입시제도 개편" loading="lazy">
+      <img class="adm-news-img2" src="newspaper_m.webp"  alt="입시 주요 변화" loading="lazy">
+    </div>
+
+    <div class="adm-headline">
+      <p class="adm-hl-sub">변화하는 입시제도</p>
+      <h2 class="adm-hl-main">이렇게 따라갑니다</h2>
+    </div>
+
+    <div class="adm-features">
+
+      <div class="adm-feature">
+        <div class="adm-feature-img">
+          <img src="2026-05-06%2015%2055%2033.webp" alt="" loading="lazy">
+        </div>
+        <div class="adm-feature-body">
+          <span class="adm-feature-num">01</span>
+          <div class="adm-feature-divider"></div>
+          <p class="adm-feature-text">입시컨설팅까지 가능한<br>과외교사 다수</p>
+        </div>
+      </div>
+
+      <div class="adm-feature">
+        <div class="adm-feature-img">
+          <img src="2026-05-06%2015%2054%2032.webp" alt="" loading="lazy">
+        </div>
+        <div class="adm-feature-body">
+          <span class="adm-feature-num">02</span>
+          <div class="adm-feature-divider"></div>
+          <p class="adm-feature-text">유형을 분석하는<br>학습 진단도구 활용</p>
+        </div>
+      </div>
+
+      <div class="adm-feature">
+        <div class="adm-feature-img">
+          <img src="2026-05-06%2015%2055%2008.webp" alt="" loading="lazy">
+        </div>
+        <div class="adm-feature-body">
+          <span class="adm-feature-num">03</span>
+          <div class="adm-feature-divider"></div>
+          <p class="adm-feature-text">매수업<br>수업 리포트 전송</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRICING SECTION ══ -->
+<section class="price-section">
+  <div class="price-inner">
+    <p class="price-sub">주 3회 1시간 한달 교육비</p>
+    <h2 class="price-tmain">저런 쌤을 이 비용에?</h2>
+    <div class="price-grid">
+      <div class="price-card">
+        <div class="price-level">초등</div>
+        <div><span class="price-val">354,000</span></div>
+      </div>
+      <div class="price-card">
+        <div class="price-level">중등</div>
+        <div><span class="price-val">402,000</span></div>
+      </div>
+      <div class="price-card price-card--featured">
+        <div class="price-level">고등</div>
+        <div><span class="price-val">462,000</span></div>
+      </div>
+      <div class="price-card">
+        <div class="price-level">고3</div>
+        <div><span class="price-val">492,000</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA SECTION ══ -->
+<section class="cta-section">
+  <div class="cta-inner">
+
+    <div class="cta-nationwide-wrap">
+      <span class="cta-nationwide-line"></span>
+      <p class="cta-nationwide">전국 <span class="gold">어디든</span> 수업 가능</p>
+      <span class="cta-nationwide-sub">비대면 수업으로 지역 제한 없이<br>전국 최상위 강사진과 함께하세요</span>
+    </div>
+
+    <div class="cta-top">
+      <span class="cta-eyebrow">Free Trial</span>
+      <h2 class="cta-title">체험 수업<br><span class="gold">1회</span> 제공합니다</h2>
+      <p class="cta-body">부담 없이 한 번만 경험해보세요.<br>실력이 증명합니다.</p>
+    </div>
+
+    <div class="cta-divider"></div>
+
+    <div class="cta-bottom">
+      <p class="cta-label">상담 문의</p>
+      <a class="cta-phone" href="tel:01039525815">010-3952-5815</a>
+      <p class="cta-hint">전화 또는 문자로 연락주시면<br>빠르게 안내드립니다</p>
+      <a class="cta-btn" href="tel:01039525815">
+        <span>지금 바로 상담하기</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<div class="teacher-modal" id="teacherModal">
+  <div class="modal-overlay" onclick="closeModal()"></div>
+  <div class="modal-panel">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-body">
+      <div class="modal-subject" id="modalSubject"></div>
+      <div class="modal-name" id="modalName"></div>
+      <div class="modal-section">
+        <div class="modal-label">학력</div>
+        <div class="modal-edu" id="modalEdu"></div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-label">커버 가능한 학생</div>
+        <div class="modal-levels" id="modalLevels"></div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-label">경력사항</div>
+        <ul class="modal-career" id="modalCareer"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* 더보기 버튼 */
+  const btn = document.getElementById('moreBtn');
+  let isOpen = false;
+  btn.addEventListener('click', () => {
+    const cards = document.querySelectorAll('.teacher-card');
+    const showCount = window.innerWidth <= 768 ? 4 : 3;
+    if (!isOpen) {
+      cards.forEach((el, i) => {
+        if (i >= showCount && el.classList.contains('hidden')) {
+          el.classList.remove('hidden');
+          el.classList.add('fade-in');
+          el.addEventListener('animationend', () => el.classList.remove('fade-in'), { once: true });
+        }
+      });
+      btn.querySelector('.btn-text').textContent = '강사진 접기';
+      btn.classList.add('open');
+      isOpen = true;
+    } else {
+      cards.forEach((el, i) => { if (i >= showCount) el.classList.add('hidden'); });
+      btn.querySelector('.btn-text').textContent = '강사진 더보기';
+      btn.classList.remove('open');
+      isOpen = false;
+    }
+  });
+
+  /* 모달 */
+  function openModal(card) {
+    const d = card.querySelector('.teacher-data');
+    document.getElementById('modalSubject').textContent = d.querySelector('.d-subject').textContent;
+    document.getElementById('modalName').textContent = d.querySelector('.d-name').textContent;
+    document.getElementById('modalEdu').textContent = d.querySelector('.d-edu') ? d.querySelector('.d-edu').textContent : '';
+    const levels = d.querySelector('.d-levels').textContent.split(',');
+    const levelsEl = document.getElementById('modalLevels');
+    levelsEl.innerHTML = '';
+    levels.forEach(lv => {
+      const tag = document.createElement('span');
+      tag.className = 'modal-level-tag';
+      tag.textContent = lv.trim();
+      levelsEl.appendChild(tag);
+    });
+    const career = d.querySelectorAll('.d-career li');
+    const ul = document.getElementById('modalCareer');
+    ul.innerHTML = '';
+    career.forEach(li => {
+      const item = document.createElement('li');
+      item.textContent = li.textContent;
+      ul.appendChild(item);
+    });
+    document.getElementById('teacherModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('teacherModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  /* ── 슬라이드 ── */
+  (function () {
+    const track = document.getElementById('slideTrack');
+    const dotsWrap = document.getElementById('slideDots');
+    if (!track) return;
+
+    const wrap = track.parentElement;
+    const items = Array.from(track.querySelectorAll('.slide-item'));
+    const total = items.length;
+    let current = 0;
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let cachedItemW = 0; // offsetWidth 캐시 — reflow 방지
+
+    function getVisible() { return window.innerWidth >= 769 ? 4 : 2; }
+    function getItemW()   { return cachedItemW || (cachedItemW = wrap.offsetWidth / getVisible()); }
+
+    /* 무한루프용 클론 (앞뒤 모두) */
+    function setupClones() {
+      // offsetWidth를 DOM 변경 전에 미리 읽어 캐싱 (forced reflow 방지)
+      cachedItemW = wrap.offsetWidth / getVisible();
+      const vis = getVisible();
+      track.querySelectorAll('.slide-clone').forEach(el => el.remove());
+      // 앞쪽: 마지막 vis개 복제
+      for (let i = total - vis; i < total; i++) {
+        const c = items[i].cloneNode(true);
+        c.classList.add('slide-clone', 'slide-clone-pre');
+        track.insertBefore(c, track.firstChild);
+      }
+      // 뒤쪽: 처음 vis개 복제
+      for (let i = 0; i < vis; i++) {
+        const c = items[i].cloneNode(true);
+        c.classList.add('slide-clone', 'slide-clone-post');
+        track.appendChild(c);
+      }
+      // 오프셋: 앞 클론만큼 밀기 (캐시된 값 사용)
+      current = current + vis;
+      track.style.transition = 'none';
+      track.style.transform = `translateX(${-current * cachedItemW}px)`;
+    }
+
+    function updateDots() {
+      const vis = getVisible();
+      const realIdx = (current - vis + total) % total;
+      dotsWrap.querySelectorAll('.slide-dot').forEach((d, i) => {
+        d.className = 'slide-dot' + (i === realIdx ? ' active' : '');
+      });
+    }
+
+    function goTo(idx, animated = true) {
+      track.style.transition = animated
+        ? 'transform 0.38s cubic-bezier(0.4,0,0.2,1)' : 'none';
+      current = idx;
+      track.style.transform = `translateX(${-current * getItemW()}px)`;
+      updateDots();
+    }
+
+    function getAllItems() {
+      return track.querySelectorAll('.slide-item, .slide-clone');
+    }
+
+    track.addEventListener('transitionend', () => {
+      const vis = getVisible();
+      const allCount = getAllItems().length;
+      if (current <= vis - 1) {
+        goTo(current + total, false);
+      } else if (current >= allCount - vis) {
+        goTo(current - total, false);
+      }
+    });
+
+    /* 닷 생성 */
+    for (let i = 0; i < total; i++) {
+      const d = document.createElement('button');
+      d.className = 'slide-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', (i + 1) + '번 슬라이드');
+      d.onclick = () => { const vis = getVisible(); goTo(i + vis); };
+      dotsWrap.appendChild(d);
+    }
+
+    /* 터치 스와이프 */
+    wrap.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    wrap.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 8) {
+        goTo(dx < 0 ? current + 1 : current - 1);
+      }
+    }, { passive: true });
+
+    /* 화살표 버튼 */
+    const prevBtn = document.getElementById('slidePrev');
+    const nextBtn = document.getElementById('slideNext');
+    if (prevBtn) prevBtn.onclick = () => goTo(current - 1);
+    if (nextBtn) nextBtn.onclick = () => goTo(current + 1);
+
+    /* 자동재생 — 2초, 수동 조작 시 리셋 */
+    let timer;
+    function startTimer() {
+      clearInterval(timer);
+      timer = setInterval(() => goTo(current + 1), 2000);
+    }
+    function resetTimer() { startTimer(); }
+
+    wrap.addEventListener('touchend', resetTimer, { passive: true });
+    if (prevBtn) prevBtn.addEventListener('click', resetTimer);
+    if (nextBtn) nextBtn.addEventListener('click', resetTimer);
+
+    startTimer();
+
+    /* 리사이즈 — 디바운스 적용 */
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => { cachedItemW = 0; current = 0; setupClones(); updateDots(); }, 150);
+    });
+
+    setupClones();
+    updateDots();
+  })();
+
+  /* 비교 섹션 스크롤 reveal */
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        revealObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  const cmpSplit = document.querySelector('.cmp-stage');
+  if (cmpSplit) revealObs.observe(cmpSplit);
+</script>
+
+</body>
+</html>
